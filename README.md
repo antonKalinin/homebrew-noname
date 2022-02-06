@@ -1,3 +1,3 @@
-### Homebrew repository for noname
+### homebrew-noname
 
-- Homepage: https://github.com/antonKalinin/noname
+Homebrew formula for the [noname](https://github.com/antonKalinin/noname) tool on macOS
