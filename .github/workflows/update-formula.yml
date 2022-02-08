@@ -1,0 +1,17 @@
+name: Update Formula
+
+on:
+  repository_dispatch:
+    types: [new_release]
+
+jobs:
+  run_if_failure:
+    if: ${{ !github.event.client_payload.passed }}
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          VERSION: ${{ github.event.client_payload.VERSION }}
+        run: echo $VERSION
+      - env:
+          SHA256: ${{ github.event.client_payload.SHA256 }}
+        run: echo $SHA256
