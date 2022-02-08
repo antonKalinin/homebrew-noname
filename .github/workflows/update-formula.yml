@@ -5,9 +5,8 @@ on:
     types: [new_release]
 
 jobs:
-  run_if_failure:
-    if: ${{ !github.event.client_payload.passed }}
-    runs-on: ubuntu-latest
+  test:
+    name: Test
     steps:
       - env:
           VERSION: ${{ github.event.client_payload.VERSION }}
