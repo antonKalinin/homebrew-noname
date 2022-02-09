@@ -7,6 +7,7 @@ on:
 jobs:
   test:
     name: Test
+    runs-on: ubuntu-latest
     steps:
       - env:
           VERSION: ${{ github.event.client_payload.VERSION }}
