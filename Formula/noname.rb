@@ -5,8 +5,8 @@ class Noname < Formula
   desc "CLI tool to remove personally identifiable information from screenshots ✨"
   homepage "https://github.com/antonKalinin/noname"
   url "https://github.com/antonKalinin/noname/releases/latest/download/noname-macos.tar.gz"
-  sha256 "0.1.22"
-  version "94ce5ea5dfbf5e434dc8ba8ba6a990599fe3b889a61607a0107c59e2093539d8"
+  sha256 "94ce5ea5dfbf5e434dc8ba8ba6a990599fe3b889a61607a0107c59e2093539d8"
+  version "0.1.22"
 
   def install
     bin.install "noname"
