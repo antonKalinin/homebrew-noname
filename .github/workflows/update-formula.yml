@@ -1,17 +1,16 @@
-name: Update Formula
-
+name: New Release
 on:
   repository_dispatch:
     types: [new_release]
 
 jobs:
   test:
-    name: Test
-    runs-on: ubuntu-latest
+    name: Update Formula
+    runs-on: macos-latest
     steps:
-      - env:
-          VERSION: ${{ github.event.client_payload.VERSION }}
-        run: echo $VERSION
+    - name: Checkout
+        uses: actions/checkout@v2
       - env:
           SHA256: ${{ github.event.client_payload.SHA256 }}
-        run: echo $SHA256
+          VERSION: ${{ github.event.client_payload.VERSION }}
+        run: envsubst < ".github/workflows/formula-template.rb" > "Formula/noname.rb"
