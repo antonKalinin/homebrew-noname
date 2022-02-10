@@ -8,9 +8,10 @@ jobs:
     name: Update Formula
     runs-on: macos-latest
     steps:
-    - name: Checkout
+      - name: Checkout
         uses: actions/checkout@v2
-      - env:
+      - name: Apply template & update formula
+        env:
           SHA256: ${{ github.event.client_payload.SHA256 }}
           VERSION: ${{ github.event.client_payload.VERSION }}
         run: envsubst < ".github/workflows/formula-template.rb" > "Formula/noname.rb"
