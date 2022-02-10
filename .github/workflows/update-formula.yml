@@ -15,3 +15,9 @@ jobs:
           SHA256: ${{ github.event.client_payload.SHA256 }}
           VERSION: ${{ github.event.client_payload.VERSION }}
         run: envsubst < ".github/workflows/formula-template.rb" > "Formula/noname.rb"
+      - name: Commit updated formula
+        run: |
+          git config --global user.name 'Anton Kalinin'
+          git config --global user.email 'hurricanebox@gmail.com'
+          git commit -am "Release v$VERSION"
+          git push origin master
