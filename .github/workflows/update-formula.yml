@@ -16,6 +16,8 @@ jobs:
           VERSION: ${{ github.event.client_payload.VERSION }}
         run: envsubst < ".github/workflows/formula-template.rb" > "Formula/noname.rb"
       - name: Commit updated formula
+        env:
+          VERSION: ${{ github.event.client_payload.VERSION }}
         run: |
           git config --global user.name 'Anton Kalinin'
           git config --global user.email 'hurricanebox@gmail.com'
